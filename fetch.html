@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let body = {
+        companyName: "Chocolatier",
+        contactName: "Seyidshah",
+        contactTitle: "Mr.",
+        adress: {
+          street: "Nigar Refibeyli",
+          city: "Baku",
+          region: "Baku",
+          postalCode: "AZ1000",
+          country: "Azerbaijan",
+          phone: "+994504806699",
+          postalCode: "AZ1000",
+        },
+      };
+
+      let bodyJson = JSON.stringify(body);
+
+      //   fetch("https://northwind.vercel.app/api/customers", {
+      //     method: "POST",
+      //     headers: {
+      //       "Content-type": "application/json",
+      //     },
+      //     body: bodyJson,
+      //   })
+      //     .then((res) => res.json())
+      //     .then((d) => console.log("POST '/api/customers' response data: ", d));
+
+      //   fetch("https://northwind.vercel.app/api/customers/AROUT", {
+      //     method: "GET",
+      //     headers: {
+      //       "Content-type": "application/json",
+      //     },
+      //   })
+      //     .then((res) => res.json())
+      //     .then((d) =>
+      //       console.log("GET '/api/customers/AROUT' response data: ", d)
+      //     );
+
+      fetch(`https://northwind.vercel.app/api/customers/BLAUS`, {
+        method: "PUT",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: bodyJson,
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log("Data ", data);
+        });
+
+      // }
+    </script>
+  </body>
+</html>

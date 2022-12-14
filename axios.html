@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let body = {
+        name: "Chocolatier",
+        supplier: {
+          companyName: "Chocolatier",
+          contactName: "Seyidshah",
+        },
+      };
+
+      let bodyJson = JSON.stringify(body);
+
+      function putCategory4() {
+        let updateCategory = body;
+
+        axios
+          .put(`https://northwind.vercel.app/api/products/${4}`, updateCategory)
+          .then((res) => {
+            console.log("Response Data ", res.data);
+          });
+      }
+
+      function getCategory() {
+        let getCategory2 = body;
+
+        axios
+          .get("https://northwind.vercel.app/api/products", getCategory2)
+          .then((res) => {
+            console.log("getData", res.data);
+          });
+      }
+
+      function deleteCategory() {
+        let deleteCategory2 = body;
+
+        axios
+          .delete(
+            "https://northwind.vercel.app/api/products/4",
+            deleteCategory2
+          )
+          .then((res) => {
+            console.log("deleteData", res.data);
+          });
+      }
+    </script>
+  </body>
+</html>
